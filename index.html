@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Exposure and Immigrant Workers in the U.S.</title>
+    <style>
+        body { font-family: Georgia, serif; max-width: 860px; margin: 60px auto; padding: 0 20px; color: #222; line-height: 1.8; }
+        h1 { font-size: 2em; margin-bottom: 0.2em; }
+        h2 { font-size: 1.3em; margin-top: 2em; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+        .meta { color: #888; font-size: 0.9em; margin-bottom: 2em; }
+        .finding { background: #f9f9f9; border-left: 4px solid #333; padding: 12px 20px; margin: 20px 0; }
+        img { width: 100%; margin: 30px 0; border: 1px solid #eee; }
+        .limitation { background: #fff8f0; border-left: 4px solid #e8a000; padding: 12px 20px; margin: 20px 0; }
+        footer { margin-top: 60px; font-size: 0.85em; color: #aaa; border-top: 1px solid #eee; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>AI Exposure and Immigrant Workers in the U.S.</h1>
+<div class="meta">Minjun · July 2025 · Data: O*NET, Felten et al. (2021), IPUMS CPS 2017–2019</div>
+
+<h2>Research Question</h2>
+<p>Are immigrant workers in the United States more or less exposed to AI-driven occupational displacement than native workers — and does this vary by education level or sector?</p>
+<p>This project does not claim to measure displacement directly. Instead, it asks a prior question: which group of workers is more likely to be in occupations where AI is most relevant? The answer shapes where displacement risk would concentrate <em>if</em> AI exposure translates into job loss.</p>
+
+<h2>Background</h2>
+<p>The task-based framework of Autor, Levy & Murnane (2003) argues that technology substitutes for routine, codifiable tasks while complementing nonroutine cognitive work. Peri & Sparber (2009) showed that immigrant and native workers sort into different task niches — immigrants concentrating in manual tasks, natives in communication-intensive roles. This project asks whether that sorting pattern means immigrants face systematically lower AI exposure than natives.</p>
+
+<h2>Data & Method</h2>
+<p>I replicated the AI Occupational Exposure (AIOE) index of Felten, Raj & Seamans (2021) using O*NET ability data. The index measures how much each occupation's task requirements overlap with current AI capabilities, across 774 occupations at the 6-digit SOC level. The replication achieved a correlation of 0.9949 with Felten et al.'s published values.</p>
+<p>I then merged this index with IPUMS CPS microdata (2017–2019) covering 2.58 million employed workers, categorized by nativity status (native-born vs. foreign-born).</p>
+
+<h2>Results</h2>
+<img src="aioe_immigrant_analysis.png" alt="AI Exposure Analysis Charts">
+
+<div class="finding">
+    <strong>Finding 1:</strong> Immigrant workers have lower average AI exposure (AIOE = 0.011) than native workers (AIOE = 0.089). The gap is modest but consistent across all education levels.
+</div>
+
+<div class="finding">
+    <strong>Finding 2:</strong> Even among college-educated workers, immigrants show lower AIOE (0.624) than natives (0.694) — suggesting the gap is not simply explained by education differences.
+</div>
+
+<div class="finding">
+    <strong>Finding 3:</strong> Sectors with high AI exposure (Legal, IT, Business) have below-average immigrant shares. Sectors with high immigrant shares (Construction, Food, Farming) have the lowest AIOE scores.
+</div>
+
+<h2>Limitations</h2>
+<div class="limitation">
+    <strong>Exposure ≠ Displacement.</strong> AIOE measures occupational proximity to AI — not whether workers will actually be displaced. A high score means the job could be affected, not that it will be.
+</div>
+<div class="limitation">
+    <strong>Sector-level approximation.</strong> Due to crosswalk limitations between OCC2010 and SOC codes, AIOE was assigned at the 2-digit sector level rather than the detailed occupation level. This understates within-sector variation.
+</div>
+<div class="limitation">
+    <strong>Index vintage.</strong> The Felten et al. index was constructed before the large language model era (pre-ChatGPT). Post-2022 AI capabilities may shift exposure patterns significantly, particularly for cognitive tasks previously considered nonroutine.
+</div>
+
+<h2>What Comes Next</h2>
+<p>This project establishes the exposure baseline. The natural follow-up is a causal design: did workers in high-AIOE occupations experience differential wage or employment changes after 2020, and does this effect differ between immigrant and native workers? That question requires panel data and a difference-in-differences design — the next project in this series.</p>
+
+<h2>References</h2>
+<p>Autor, D., Levy, F., & Murnane, R. (2003). The skill content of recent technological change. <em>Quarterly Journal of Economics</em>.<br>
+Felten, E., Raj, M., & Seamans, R. (2021). Occupational, industry, and geographic exposure to artificial intelligence. <em>Strategic Management Journal</em>.<br>
+Peri, G., & Sparber, C. (2009). Task specialization, immigration, and wages. <em>American Economic Journal: Applied Economics</em>.</p>
+
+<footer>
+    Part of an independent research portfolio on macroeconomic shocks and labor markets. 
+    Code available on <a href="https://github.com/MinJTheNinja/ai-immigrant-labor">GitHub</a>.
+</footer>
+
+</body>
+</html>
